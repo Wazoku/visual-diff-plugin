@@ -14,6 +14,7 @@
             <script type="text/javascript" src="${rootURL}/plugin/visual-diff/js/jquery-1.11.0.js"></script>
             <script type="text/javascript" src="${rootURL}/plugin/visual-diff/js/jquery-ui-1.10.4.js"></script>
 
+            <script>jQuery.noConflict();</script>
             <script type="text/javascript" src="${rootURL}/plugin/visual-diff/js/compare.js"></script>
 
 
@@ -54,17 +55,8 @@
                             <table width="100%">
                                 <tr>
                                     <td align="left">Build
-                                        <j:if test="${it.getArtifacts().hasBuildDiff(screenshot) || !it.getArtifacts().isApproved(screenshot)}">
-                                            (<span class="action-link approve-link">Approve</span>)
-                                        </j:if>
                                     </td>
                                     <td align="right">
-                                        <j:if test="${it.getArtifacts().isApproved(screenshot)}">
-                                            (<span class="action-link delete-link">Delete</span>)
-                                        </j:if>
-                                        <j:if test="${!it.getArtifacts().isApproved(screenshot)}">
-                                            (None)
-                                        </j:if>
                                         Approved
                                     </td>
                                 </tr>
@@ -91,10 +83,6 @@
                 </div>
 
             </j:forEach>
-
-            <div class="control-box">
-                <span class="action-link delete-all-link">Delete all approved!</span>
-            </div>
 
         </l:main-panel>
 

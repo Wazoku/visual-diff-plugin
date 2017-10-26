@@ -20,8 +20,8 @@
 .slider-box {
     position: fixed;
     top: 0;
-    width: 500px;
-    height: 130px;
+    width: 515px;
+    height: 150px;
     background-color: white;
     border: 1px solid black;
     z-index: 1000;

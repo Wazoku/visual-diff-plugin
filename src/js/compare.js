@@ -1,3 +1,4 @@
+jQuery(function ($) {
 (function () {
 
     function getTitleBox(el) {
@@ -71,7 +72,7 @@
                         imgDiff.css('height', imgScreen.outerHeight() + 'px');
                     }
 
-                    $imageCompareBox.css('width', maxWidth + 'px');
+                    $imageCompareBox.css('width', (maxWidth + 40) + 'px');
                     $imageCompareBox.css('height', ($(window).height() - 140 - 25) + 'px');
 
                     $imageCompareBox.css('top', Math.max(140, ($(window).height() / 2) - (maxHeight / 2) - (140/2)));
@@ -137,3 +138,4 @@
         });
     });
 })();
+});
