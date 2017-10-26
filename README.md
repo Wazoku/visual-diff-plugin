@@ -1,32 +1,13 @@
 visual-diff-plugin
 ==================
 
-A Jenkins plug-in to manage differences in screenshots
+The original repo (https://github.com/ablage/visual-diff-plugin) contains a hpi file which differs from the checked in code.
 
-Screenshots that are taken during a build are compared with previously approved images and possibly trigger build status changes. The screenshots can be compared with each other through a comparison page which highlights differences.
+Rather then use the supplied source code (which when compiled, didn't seem to render correctly) I've extracted the hpi file into a new `dev` branch and modified it to fix a couple of js & css bugs and better match Wazoku's needs.
 
-
-Differences chart:
-
-![Image](images/Chart.png?raw=true)
-
-
-
-Screenshot comparison reports:
-
-![Image](images/Report.png?raw=true)
-
-
-
-Highlights to show differences:
-
-![Image](images/Difference_Highlighting.png?raw=true)
-
-# Work in Progress
-The current plugin is a WIP and will be in a working state shortly. For the time being, you can use the visual-diff.hpi in the root for testing purposes, but please be aware that this is not a production version and that the configuration will change. The configuration will not be backwards compatible!
+Use the `make_hpi.sh` script to repackage the hpi file which can be uploaded to Jenkins
 
 # External tools needed
-The current version still needs the perceptualdiff bin to do the differences. In a future version, this may be replaced with a native java version. 
 Install the perceptualdiff package with:
 
 ```yum install perceptualdiff```
