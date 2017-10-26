@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: marcel
+Build-Jdk: 1.6.0_65
+Extension-Name: visual-diff
+Specification-Title: A plug-in to manage differences in screenshots.
+Specification-Vendor: Shipwire Inc.
+Implementation-Vendor: Shipwire Inc.
+Implementation-Title: visual-diff
+Implementation-Version: 0.5.6
+Group-Id: org.jenkins-ci.plugins
+Short-Name: visual-diff
+Long-Name: Visual-Diff Plugin
+Url: http://jenkins-ci.org/plugin/visual-diff/
+Plugin-Version: 0.5.6
+Hudson-Version: 1.532.2
+Jenkins-Version: 1.532.2
+Plugin-Developers: Marcel Erz:marcelerz:marcel.erz@gmail.com
+

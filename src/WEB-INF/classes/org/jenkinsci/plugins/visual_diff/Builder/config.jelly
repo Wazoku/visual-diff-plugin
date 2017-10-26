@@ -1,0 +1,9 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+    <f:entry title="Comparisons">
+        <f:hetero-list name="comparisons"
+                       descriptors="${descriptor.getComparisonDescribables(it)}" items="${instance.comparisons}"
+                       addCaption="Add comparison" hasHeader="true"/>
+    </f:entry>
+
+</j:jelly>
