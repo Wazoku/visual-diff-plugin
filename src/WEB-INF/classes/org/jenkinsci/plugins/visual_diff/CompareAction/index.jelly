@@ -50,14 +50,15 @@
 
                         <div class="slider-box">
                             <div class="close-link">Close</div>
-                            <div class="compare-text">Compare Build Screen with Approved Screen</div>
+                            <div class="compare-text">Compare New Screen with Original Screen</div>
                             <div class="compare-title-text">${screenshot.getName()}</div>
                             <table width="100%">
                                 <tr>
-                                    <td align="left">Build
+                                    <td align="left">
+                                        New
                                     </td>
                                     <td align="right">
-                                        Approved
+                                        Original
                                     </td>
                                 </tr>
                             </table>
