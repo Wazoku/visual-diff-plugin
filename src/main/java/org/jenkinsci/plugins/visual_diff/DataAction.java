@@ -1,45 +1,52 @@
 package org.jenkinsci.plugins.visual_diff;
 
-import hudson.model.*;
-import org.jenkinsci.plugins.visual_diff.data.ScreenList;
-
+import hudson.model.InvisibleAction;
 import java.io.Serializable;
+import org.jenkinsci.plugins.visual_diff.data.BuildData;
 
-/**
- * Action to save build data
- *
- * @author Marcel Erz
- */
-public class DataAction extends InvisibleAction implements Serializable {
+public class DataAction extends InvisibleAction implements Serializable
+{
+  private static final long serialVersionUID = -5986348230372792724L;
+  private BuildData buildData;
+  private int knownScreensBefore = 0;
+  private int knownScreensAfter = 0;
+  private String[] differentScreens;
 
-    /**
-     * Serialization identifier
-     */
-    private static final long serialVersionUID = -5986348230372792724L;
+  public DataAction(BuildData buildData, int knownScreensBefore, int knownScreensAfter, String[] differentScreens)
+  {
+    this.buildData = buildData;
+    this.knownScreensBefore = knownScreensBefore;
+    this.knownScreensAfter = knownScreensAfter;
+    this.differentScreens = differentScreens;
+  }
 
+  public BuildData getBuildData()
+  {
+    return this.buildData;
+  }
 
-    /**
-     * List of screens
-     */
-    private ScreenList screenList = new ScreenList();
+  public int getKnownScreensBefore()
+  {
+    return this.knownScreensBefore;
+  }
 
+  public int getKnownScreensAfter()
+  {
+    return this.knownScreensAfter;
+  }
 
-    /**
-     * Gets all screens as list
-     *
-     * @return Screen list
-     */
-    public ScreenList getScreenList() {
-        return screenList;
+  public String[] getDifferentScreens()
+  {
+    return this.differentScreens;
+  }
+
+  public Boolean screenIsDifferent(String name)
+  {
+    for (String curr : this.differentScreens) {
+      if (curr.equals(name)) {
+        return Boolean.valueOf(true);
+      }
     }
-
-    /**
-     * Gets the JSON data
-     *
-     * @return JSON
-     */
-    public String getJSONData() {
-        return screenList.toJSON().toString();
-    }
+    return Boolean.valueOf(false);
+  }
 }
-

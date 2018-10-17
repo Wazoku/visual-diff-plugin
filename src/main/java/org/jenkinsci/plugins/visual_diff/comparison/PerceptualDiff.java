@@ -5,16 +5,16 @@ import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.*;
 import hudson.util.FormValidation;
-
 import net.sf.json.JSONObject;
-import org.apache.commons.lang.math.NumberUtils;
 
+import org.apache.commons.lang.math.NumberUtils;
 import org.kohsuke.stapler.AncestorInPath;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 
 import javax.servlet.ServletException;
+
 import java.io.IOException;
 
 /**
@@ -226,7 +226,8 @@ public class PerceptualDiff extends ComparisonDescribable {
 
         // Run comparison and wait until finished
         listener.getLogger().println(cmd);
-        int exitCode = launcher.launch(cmd, build.getEnvVars(), listener.getLogger(), build.getWorkspace()).join();
+        @SuppressWarnings("deprecation")
+		int exitCode = launcher.launch(cmd, build.getEnvVars(), listener.getLogger(), build.getWorkspace()).join();
 
         return (exitCode != 0);
     }

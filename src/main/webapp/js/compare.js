@@ -1,3 +1,4 @@
+jQuery(function ($) {
 (function () {
 
     function getTitleBox(el) {
@@ -13,6 +14,8 @@
     $(document).ready(function () {
         $(".image-title").click(function (e) {
             var $titleBox = getTitleBox(e.target);
+
+            $('.mask').show();
 
             var $imageCompareBox = $titleBox.find('.image-compare-box');
             var maxWidth = 0,
@@ -56,25 +59,24 @@
 
                 if (successful) {
 
-                    $imageCompareBox.modal();
-//                    $sliderBox = $imageCompareBox.find('.slider-box');
-//                    $sliderBox.css('left', Math.max(0, ($(window).width() / 2) - ($sliderBox.outerWidth() / 2)))
-//
-//                    $imageCompareBox.show();
-//
-//                    maxWidth = Math.max(imgScreen.outerWidth(), imgApproved.outerWidth());
-//                    maxHeight = Math.max(imgScreen.outerHeight(), imgApproved.outerHeight());
-//
-//                    if (imgDiff.length > 0) {
-//                        imgDiff.css('width', imgScreen.outerWidth() + 'px');
-//                        imgDiff.css('height', imgScreen.outerHeight() + 'px');
-//                    }
-//
-//                    $imageCompareBox.css('width', maxWidth + 'px');
-//                    $imageCompareBox.css('height', ($(window).height() - 140 - 25) + 'px');
-//
-//                    $imageCompareBox.css('top', Math.max(140, ($(window).height() / 2) - (maxHeight / 2) - (140/2)));
-//                    $imageCompareBox.css('left', Math.max(0, ($(window).width() / 2) - (maxWidth / 2)));
+                    $sliderBox = $imageCompareBox.find('.slider-box');
+                    $sliderBox.css('left', Math.max(0, ($(window).width() / 2) - ($sliderBox.outerWidth() / 2)))
+
+                    $imageCompareBox.show();
+
+                    maxWidth = Math.max(imgScreen.outerWidth(), imgApproved.outerWidth());
+                    maxHeight = Math.max(imgScreen.outerHeight(), imgApproved.outerHeight());
+
+                    if (imgDiff.length > 0) {
+                        imgDiff.css('width', imgScreen.outerWidth() + 'px');
+                        imgDiff.css('height', imgScreen.outerHeight() + 'px');
+                    }
+
+                    $imageCompareBox.css('width', (maxWidth + 40) + 'px');
+                    $imageCompareBox.css('height', ($(window).height() - 140 - 25) + 'px');
+
+                    $imageCompareBox.css('top', Math.max(140, ($(window).height() / 2) - (maxHeight / 2) - (140/2)));
+                    $imageCompareBox.css('left', Math.max(0, ($(window).width() / 2) - (maxWidth / 2)));
 
                 } else {
                     setTimeout(loadImages, 500);
@@ -84,7 +86,7 @@
         $(".image-compare-box .close-link").click(function (e) {
             var $titleBox = getTitleBox(e.target);
 
-
+            $('.mask').hide();
             $titleBox.find('.image-compare-box').hide();
         });
 
@@ -99,8 +101,8 @@
                     rightOpacity = value/100,
                     leftOpacity = Math.abs(1 - rightOpacity);
 
-                $titleBox.find('.image-compare-box img.screen').css('opacity', rightOpacity);
-                $titleBox.find('.image-compare-box img.approved').css('opacity', leftOpacity);
+                $titleBox.find('.image-compare-box img.screen').css('opacity', leftOpacity);
+                $titleBox.find('.image-compare-box img.approved').css('opacity', rightOpacity);
             }
         });
         $(".image-compare-box .slider-box input").change(function (event) {
@@ -136,3 +138,4 @@
         });
     });
 })();
+});

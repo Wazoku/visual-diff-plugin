@@ -6,27 +6,4 @@
                        addCaption="Add comparison" hasHeader="true"/>
     </f:entry>
 
-    <f:section title="Build Options">
-
-        <f:entry title="When missing threshold reached, mark build as">
-            <label>
-                <f:radio name="markAs" value="failed" checked="${instance.markAs=='failed'}" />
-                Failed
-            </label>
-            <label>
-                <f:radio name="markAs" value="unstable" checked="${instance.markAs==null || instance.markAs=='unstable'}" />
-                Unstable
-            </label>
-            <label>
-                <f:radio name="markAs" value="nothing" checked="${instance.markAs=='nothing'}"  />
-                Do Nothing
-            </label>
-        </f:entry>
-
-        <f:entry title="Number of missing screens" field="numberOfMissing">
-            <f:textbox default="1" />
-        </f:entry>
-
-    </f:section>
-
 </j:jelly>
