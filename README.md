@@ -22,13 +22,19 @@ Highlights to show differences:
 
 ![Image](images/Difference_Highlighting.png?raw=true)
 
-# Work in Progress
-The current plugin is a WIP and will be in a working state shortly. For the time being, you can use the visual-diff.hpi in the root for testing purposes, but please be aware that this is not a production version and that the configuration will change. The configuration will not be backwards compatible!
+# Modifications by Wazoku
+This has been modified from the original repo. The [original hpi file](https://github.com/Wazoku/visual-diff-plugin/commit/b0fc7b0631481f23905124b38ea27e7be74c56db) added to this repo contained a different (more recent?) version of the code. That package has been decompiled over the 'older' version here. The UI and Java code has been very slightly modified to better support our usecase.
 
 # External tools needed
-The current version still needs the perceptualdiff bin to do the differences. In a future version, this may be replaced with a native java version. 
+The current version still needs the perceptualdiff bin to do the differences. In a future version, this may be replaced with a native java version.
 Install the perceptualdiff package with:
 
 ```yum install perceptualdiff```
 
 Add the path of the binary to the system configuration for the visual-diff plugin, and the plugin should be ready to run.
+
+# Build
+
+Make sure [maven](https://maven.apache.org/) is installed.
+
+    mvn install
