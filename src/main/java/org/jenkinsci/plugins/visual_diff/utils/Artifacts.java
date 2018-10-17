@@ -73,9 +73,11 @@ public class Artifacts
     return getApprovedArtifactsPath().child("screens");
   }
   
+  @SuppressWarnings("deprecation")
   public FilePath[] getApprovedScreens() throws InterruptedException, IOException
   {
-    return getApprovedScreensPath().list("*");
+    String build_no = this.build.getEnvVars().get("BUILD_NUMBER");
+    return getApprovedScreensPath().list(build_no+"_*");
   }
   
   public FilePath getApprovedPath(String name) throws InterruptedException, IOException
