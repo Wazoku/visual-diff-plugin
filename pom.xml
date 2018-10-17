@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>visual-diff</artifactId>
-    <version>0.6.1</version>
+    <version>0.5.9</version>
     <packaging>hpi</packaging>
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
